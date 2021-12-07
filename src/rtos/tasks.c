@@ -24,15 +24,15 @@ void task1(void) {
   for(;;){
     #if with_scheduler == 1
 
-    delay(30);
     // Ligando LED verde
     blink_led_on(BLINK_PIN_NUMBER_GREEN);
     (void)sem_post(&semaf1);
+    delay(30);
 
-    delay(100);
     // Desligando todos os LEDS
     blink_led_off(BLINK_PIN_NUMBER_ORANGE);
     blink_led_off(BLINK_PIN_NUMBER_GREEN);
+    delay(100);
 
     #else
     yield();
@@ -54,15 +54,15 @@ void task3(void) {
   for(;;){
     #if with_scheduler == 1
 
-    delay(60);
     // Ligando LED azul
     blink_led_on(BLINK_PIN_NUMBER_BLUE);
     (void)sem_post(&semaf2);
+    delay(60);
 
-    delay(140);
     // Desligando todos os LEDS
     blink_led_off(BLINK_PIN_NUMBER_BLUE);
     blink_led_off(BLINK_PIN_NUMBER_RED);
+    delay(140);
 
     #else
     yield();
